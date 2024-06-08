@@ -199,6 +199,28 @@ jQuery(function ($) {
 		}
 		projectShuffle();
 
+		function projectShuffle1() {
+			if ($('.shuffle-wrapper1').length !== 0) {
+				var Shuffle = window.Shuffle;
+				var myShuffle = new Shuffle(document.querySelector('.shuffle-wrapper1'), {
+					itemSelector: '.shuffle-item1',
+					sizer: '.shuffle-sizer1',
+					buffer: 1
+				});
+				$('input[name="shuffle-filter1"]').on('change', function (evt) {
+					var input = evt.currentTarget;
+					if (input.checked) {
+						myShuffle.filter(input.value);
+					}
+				});
+				$('.shuffle-btn-group1 label').on('click', function () {
+					$('.shuffle-btn-group1 label').removeClass('active');
+					$(this).addClass('active');
+				});
+			}
+		}
+		projectShuffle1();
+
 
 		// testimonial carousel
 		function testimonialCarousel() {

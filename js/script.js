@@ -221,6 +221,27 @@ jQuery(function ($) {
 		}
 		projectShuffle1();
 
+		function projectShuffle2() {
+			if ($('.shuffle-wrapper2').length !== 0) {
+				var Shuffle = window.Shuffle;
+				var myShuffle = new Shuffle(document.querySelector('.shuffle-wrapper2'), {
+					itemSelector: '.shuffle-item2',
+					sizer: '.shuffle-sizer2',
+					buffer: 1
+				});
+				$('input[name="shuffle-filter2"]').on('change', function (evt) {
+					var input = evt.currentTarget;
+					if (input.checked) {
+						myShuffle.filter(input.value);
+					}
+				});
+				$('.shuffle-btn-group2 label').on('click', function () {
+					$('.shuffle-btn-group2 label').removeClass('active');
+					$(this).addClass('active');
+				});
+			}
+		}
+		projectShuffle2();
 
 		// testimonial carousel
 		function testimonialCarousel() {
